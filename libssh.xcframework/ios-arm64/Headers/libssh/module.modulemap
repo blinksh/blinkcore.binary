@@ -1,0 +1,4 @@
+/// Expose LIbSSH for extraneous Swift usage
+module LibSSH {
+    header "shim.h"
+}

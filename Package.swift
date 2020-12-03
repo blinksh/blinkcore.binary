@@ -12,14 +12,20 @@ let package = Package(
       name: "SSH",
       targets: ["SSH"]),
   ],
-  dependencies: [
-    .package(path: "/Users/carlos/libssh-framework")
-  ],
   targets: [
     .binaryTarget(
-      name: "SSH",
-      dependencies: ["LibSSH"],
+      name: "SSHBin",
       path: "SSH.xcframework"
-    )
+    ),
+    .binaryTarget(
+        name: "LibSSH",
+        path: "libssh.xcframework"
+    ),
+    .target(name: "SSH",
+            dependencies: [
+                .target(name: "SSHBin"),
+                .target(name: "LibSSH")
+            ],
+            path: "SSHTargets")
   ]
 )
