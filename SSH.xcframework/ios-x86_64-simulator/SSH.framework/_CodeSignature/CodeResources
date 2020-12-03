@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/libsshd-simulator.a</key>
-		<data>
-		rqYE6uTdPynGvSm0ohR4H6aKdnA=
-		</data>
 		<key>Headers/SSH-Swift.h</key>
 		<data>
 		nG4ih5sHhCAKdo0C8XYz/05WcOc=
@@ -47,13 +43,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/libsshd-simulator.a</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			vP3KSxE5Pg4d/Y1cvp3V124/7SGU6A7HgAZbuU572gQ=
-			</data>
-		</dict>
 		<key>Headers/SSH-Swift.h</key>
 		<dict>
 			<key>hash2</key>

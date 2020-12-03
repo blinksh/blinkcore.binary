@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/libsshd-phone.a</key>
-		<data>
-		BwycYnIH1F8VKuzIlasJBhugSlw=
-		</data>
 		<key>Headers/SSH-Swift.h</key>
 		<data>
 		nG4ih5sHhCAKdo0C8XYz/05WcOc=
@@ -47,13 +43,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/libsshd-phone.a</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			9B2Bpchl75A6j7GlbfunORS345lcwpA83o95v7/uAT8=
-			</data>
-		</dict>
 		<key>Headers/SSH-Swift.h</key>
 		<dict>
 			<key>hash2</key>
