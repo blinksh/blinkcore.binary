@@ -1,0 +1,4 @@
+framework module SSH {
+  header "SSH-Swift.h"
+  requires objc
+}

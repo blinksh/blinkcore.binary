@@ -1,0 +1,206 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SSH
+import Combine
+import Dispatch
+import Foundation
+import Network
+import Swift
+extension SSHClient {
+  public static func deleteKnownHost(inPath: Swift.String, host: Swift.String) throws
+}
+public enum DeleteKnownHostsError : Swift.Error {
+  case didNotFindHost
+  case failedWritingKnownHostsFile(path: Swift.String)
+  case failedReadingKnownHostsFile(path: Swift.String)
+  public var description: Swift.String {
+    get
+  }
+}
+public enum FileError : Swift.Error {
+  case Fail(msg: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class SFTPClient {
+  public func walkTo(_ path: Swift.String)
+  public func directoryFilesAndAttributes(_ path: Swift.String) -> Combine.AnyPublisher<[Swift.String], Swift.Error>
+  public func open(_ path: Swift.String) -> Combine.AnyPublisher<SSH.SFTPFile, Swift.Error>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SFTPFile {
+  @objc deinit
+}
+extension SFTPFile : SSH.Reader, SSH.WriterTo {
+  public func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
+  public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension SFTPFile : SSH.Writer {
+  public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public enum PortForwardState {
+  case waiting(Swift.Error)
+  case starting
+  case ready
+  case received(stream: Combine.AnyPublisher<SSH.Stream, Swift.Error>)
+}
+public class SSHPortForwardListener {
+  public init(on localPort: Swift.String, toDestination host: Swift.String, on remotePort: Swift.String, using client: SSH.SSHClient) throws
+  public func receive() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
+  public func close()
+  @objc deinit
+}
+public class SSHPortForwardClient {
+  public init(forward address: Swift.String, onPort localPort: Swift.String, toRemotePort remotePort: Swift.String, using client: SSH.SSHClient) throws
+  public func connect() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
+  public func close()
+  @objc deinit
+}
+extension NWConnection : SSH.WriterTo {
+  final public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension NWConnection : SSH.Writer {
+  final public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public enum DispatchStreamError : Swift.Error {
+  case read
+  case write
+  public var description: Swift.String {
+    get
+  }
+  public static func == (a: SSH.DispatchStreamError, b: SSH.DispatchStreamError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public class DispatchOutputStream : SSH.Writer {
+  public init(stream: Swift.Int32)
+  public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+  public func close()
+  @objc deinit
+}
+public class DispatchInputStream {
+  public init(stream: Swift.Int32)
+  public func close()
+  @objc deinit
+}
+extension DispatchInputStream : SSH.WriterTo {
+  public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public func SSHInit()
+public enum InteractiveResponse {
+  case affirmative
+  case negative
+  public static func == (a: SSH.InteractiveResponse, b: SSH.InteractiveResponse) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum VerifyHost {
+  case changed(serverFingerprint: Swift.String)
+  case unknown(serverFingerprint: Swift.String)
+  case notFound(serverFingerprint: Swift.String)
+}
+public struct SSHClientConfig {
+  public typealias RequestVerifyHostCallback = (SSH.VerifyHost) -> Combine.AnyPublisher<SSH.InteractiveResponse, Swift.Error>
+  public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
+  public var handleSessionException: ((Swift.Error) -> ())?
+  public init(user: Swift.String, port: Swift.String? = nil, proxyJump: Swift.String? = nil, proxyCommand: Swift.String? = nil, authMethods: [SSH.AuthMethod]? = nil, loggingVerbosity: Swift.Int = 0, verifyHostCallback: SSH.SSHClientConfig.RequestVerifyHostCallback? = nil, connectionTimeout: Swift.Int? = 30, terminalEmulator: Swift.String = "xterm-256color", sshDirectory: Swift.String? = nil, sshClientConfigPath: Swift.String? = nil, logger: Combine.PassthroughSubject<Swift.String, Swift.Never>? = nil, keepAliveInterval: Swift.Int? = nil)
+}
+@_hasMissingDesignatedInitializers public class SSHClient {
+  final public let options: SSH.SSHClientConfig
+  public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
+  public func verifyKnownHost() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
+  public func connect() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
+  public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestSFTP() -> Combine.AnyPublisher<SSH.SFTPClient, Swift.Error>
+  public func requestExec(command cmd: Swift.String) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestForward(to endpoint: Swift.String, port: Swift.Int32, from host: Swift.String, localPort: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestReverseForward(bindTo address: Swift.String?, port: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  @objc deinit
+}
+public enum SSHError : Swift.Error, Swift.Equatable {
+  public static func == (lhs: SSH.SSHError, rhs: SSH.SSHError) -> Swift.Bool
+  case noClient
+  case noChannel
+  case again
+  case connError(msg: Swift.String)
+  case notImplemented(Swift.String)
+  case authFailed(methods: [SSH.AuthMethod])
+  case authError(msg: Swift.String)
+  case errorGettingServerPublicKey(libsshError: Swift.String)
+  case errorGettingPublicKeyHash(libsshError: Swift.String)
+  case couldntUpdateKnownHosts
+  case couldntVerifyHostAuthenticity
+  case couldntResolveHostAddress
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol AuthMethod {
+  func name() -> Swift.String
+}
+public enum AuthState {
+  case Success
+  case Denied
+  case Continue(auth: Combine.AnyPublisher<SSH.AuthState, Swift.Error>)
+  case Partial
+}
+public class AuthPassword : SSH.AuthMethod {
+  public init(with password: Swift.String)
+  public func name() -> Swift.String
+  @objc deinit
+}
+public class AuthNone : SSH.AuthMethod {
+  public init()
+  public func name() -> Swift.String
+  @objc deinit
+}
+public struct Prompt {
+  public let name: Swift.String
+  public let instruction: Swift.String
+  public struct Question {
+    public let prompt: Swift.String
+    public let echo: Swift.Bool
+  }
+  public var userPrompts: [SSH.Prompt.Question]
+}
+public class AuthKeyboardInteractive : SSH.AuthMethod {
+  public typealias RequestAnswersCb = (SSH.Prompt) -> Combine.AnyPublisher<[Swift.String], Swift.Error>
+  public init(requestAnswers f: @escaping SSH.AuthKeyboardInteractive.RequestAnswersCb, wrongRetriesAllowed: Swift.Int = 3)
+  public func name() -> Swift.String
+  @objc deinit
+}
+public class AuthPublicKey : SSH.AuthMethod {
+  public init(privateKey: Swift.String)
+  public func name() -> Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Stream : SSH.Reader, SSH.Writer, SSH.WriterTo {
+  public var handleCompletion: (() -> ())?
+  public var handleFailure: ((Swift.Error) -> ())?
+  public func connect(stdout out: SSH.Writer, stdin input: SSH.WriterTo? = nil, stderr err: SSH.WriterTo? = nil)
+  public func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
+  public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+  public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+  public func sendEOF() -> Combine.AnyPublisher<Swift.Void, Swift.Error>
+  public func resizePty(rows: Swift.Int32, columns: Swift.Int32) -> Combine.AnyPublisher<Swift.Void, Swift.Error>
+  public func cancel()
+  @objc deinit
+}
+public protocol Reader {
+  func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
+}
+public protocol Writer {
+  func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public protocol WriterTo {
+  func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public protocol ReaderFrom {
+  func readFrom(_ r: SSH.Reader) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension SSH.DispatchStreamError : Swift.Equatable {}
+extension SSH.DispatchStreamError : Swift.Hashable {}
+extension SSH.InteractiveResponse : Swift.Equatable {}
+extension SSH.InteractiveResponse : Swift.Hashable {}
