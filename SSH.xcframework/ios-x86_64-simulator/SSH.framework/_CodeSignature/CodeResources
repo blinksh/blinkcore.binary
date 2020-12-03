@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		GHXmIYbl+Xa//WqqhZMDH4ybgEA=
+		mbXWMylafD+BOqD/TTNnnJ0HMGw=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ajcVJTHFqfQeEvfCiciBK6nfTz0=
+		w2h4tUFFgFbWGkkA/2GMKVuMWuM=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		GHXmIYbl+Xa//WqqhZMDH4ybgEA=
+		mbXWMylafD+BOqD/TTNnnJ0HMGw=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ajcVJTHFqfQeEvfCiciBK6nfTz0=
+		w2h4tUFFgFbWGkkA/2GMKVuMWuM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -61,14 +61,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3V2kOSQRaJ11F88ybZxx33me7rs95EgBh3in4V21WFo=
+			r6xnnX7SaUopyJa7vQkbRu4ryl7VWMXbopuf19b2Lfs=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yqWfYwkgQDsx7XNKQzsuoeEtfcH9h4SN6YGdkyBYZTI=
+			ue+0QCsOIObNhXGr8xXLXA1+tA6H50OeY1FhlXO6R48=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
@@ -82,14 +82,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3V2kOSQRaJ11F88ybZxx33me7rs95EgBh3in4V21WFo=
+			r6xnnX7SaUopyJa7vQkbRu4ryl7VWMXbopuf19b2Lfs=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yqWfYwkgQDsx7XNKQzsuoeEtfcH9h4SN6YGdkyBYZTI=
+			ue+0QCsOIObNhXGr8xXLXA1+tA6H50OeY1FhlXO6R48=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -103,13 +103,13 @@ public enum VerifyHost {
 }
 public struct SSHClientConfig {
   public typealias RequestVerifyHostCallback = (SSH.VerifyHost) -> Combine.AnyPublisher<SSH.InteractiveResponse, Swift.Error>
-  public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
   public var handleSessionException: ((Swift.Error) -> ())?
   public init(user: Swift.String, port: Swift.String? = nil, proxyJump: Swift.String? = nil, proxyCommand: Swift.String? = nil, authMethods: [SSH.AuthMethod]? = nil, loggingVerbosity: Swift.Int = 0, verifyHostCallback: SSH.SSHClientConfig.RequestVerifyHostCallback? = nil, connectionTimeout: Swift.Int? = 30, terminalEmulator: Swift.String = "xterm-256color", sshDirectory: Swift.String? = nil, sshClientConfigPath: Swift.String? = nil, logger: Combine.PassthroughSubject<Swift.String, Swift.Never>? = nil, keepAliveInterval: Swift.Int? = nil)
 }
 @_hasMissingDesignatedInitializers public class SSHClient {
   final public let options: SSH.SSHClientConfig
-  public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
+  public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
+  public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig, withProxy proxyCb: SSH.SSHClient.ExecProxyCommandCallback? = nil) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func verifyKnownHost() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func connect() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
