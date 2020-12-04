@@ -4,22 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/libsshd-phone.a</key>
-		<data>
-		BwycYnIH1F8VKuzIlasJBhugSlw=
-		</data>
-		<key>Frameworks/openssl.framework/Info.plist</key>
-		<data>
-		rjy3T79WkhirxNuUFlUPz3qwDrw=
-		</data>
-		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
-		<data>
-		V6LmOCMmoQgbpmHueREGke0oM5Q=
-		</data>
-		<key>Frameworks/openssl.framework/openssl</key>
-		<data>
-		PNT8pw5MLqQtG7JOXpin1ikDrnc=
-		</data>
 		<key>Headers/SSH-Swift.h</key>
 		<data>
 		nG4ih5sHhCAKdo0C8XYz/05WcOc=
@@ -59,34 +43,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/libsshd-phone.a</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			9B2Bpchl75A6j7GlbfunORS345lcwpA83o95v7/uAT8=
-			</data>
-		</dict>
-		<key>Frameworks/openssl.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			AixKJWNjGT5m4nklg0I4vIAl+kIAaApQKqiOoINN8rM=
-			</data>
-		</dict>
-		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			FjLfxrlS0L6Q45QoQkzhZNVT+08ED+KJRtsd1mpYETc=
-			</data>
-		</dict>
-		<key>Frameworks/openssl.framework/openssl</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1FgU5ckK6/r4Bn8I4jRxGaUtD+G8VCPhZQPkiGuiqvw=
-			</data>
-		</dict>
 		<key>Headers/SSH-Swift.h</key>
 		<dict>
 			<key>hash2</key>
