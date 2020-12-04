@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		RAdGjsB+ztGIpLjQaXJign+ICHI=
+		nWI0LvQHYW21+sd+cBq82JoNXRc=
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		RAdGjsB+ztGIpLjQaXJign+ICHI=
+		nWI0LvQHYW21+sd+cBq82JoNXRc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,7 +68,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y2oTsNrjCNiyOqUhpPEqMbo7fSpZmVBEUh0tQ79qzBI=
+			3/QH8vfW0H3KVt+gR2xCU8+8CyMGRzV7g12S9eXVKeY=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/arm64.swiftdoc</key>
@@ -89,7 +89,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y2oTsNrjCNiyOqUhpPEqMbo7fSpZmVBEUh0tQ79qzBI=
+			3/QH8vfW0H3KVt+gR2xCU8+8CyMGRzV7g12S9eXVKeY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
