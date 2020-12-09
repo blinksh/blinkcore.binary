@@ -42,14 +42,18 @@ public enum PortForwardState {
   case ready
   case received(stream: Combine.AnyPublisher<SSH.Stream, Swift.Error>)
 }
+public enum SSHPortForwardError : Swift.Error {
+  case nwError(msg: Swift.String)
+  public init(title: Swift.String, _ error: Swift.Error)
+}
 public class SSHPortForwardListener {
-  public init(on localPort: Swift.String, toDestination host: Swift.String, on remotePort: Swift.String, using client: SSH.SSHClient) throws
+  public init(on localPort: Swift.UInt16, toDestination host: Swift.String, on remotePort: Swift.UInt16, using client: SSH.SSHClient)
   public func receive() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
   public func close()
   @objc deinit
 }
 public class SSHPortForwardClient {
-  public init(forward address: Swift.String, onPort localPort: Swift.String, toRemotePort remotePort: Swift.String, using client: SSH.SSHClient) throws
+  public init(forward address: Swift.String, onPort localPort: Swift.UInt16, toRemotePort remotePort: Swift.UInt16, using client: SSH.SSHClient)
   public func connect() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
   public func close()
   @objc deinit
@@ -103,36 +107,42 @@ public enum VerifyHost {
 }
 public struct SSHClientConfig {
   public typealias RequestVerifyHostCallback = (SSH.VerifyHost) -> Combine.AnyPublisher<SSH.InteractiveResponse, Swift.Error>
-  public var handleSessionException: ((Swift.Error) -> ())?
-  public init(user: Swift.String, port: Swift.String? = nil, proxyJump: Swift.String? = nil, proxyCommand: Swift.String? = nil, authMethods: [SSH.AuthMethod]? = nil, loggingVerbosity: Swift.Int = 0, verifyHostCallback: SSH.SSHClientConfig.RequestVerifyHostCallback? = nil, connectionTimeout: Swift.Int? = 30, terminalEmulator: Swift.String = "xterm-256color", sshDirectory: Swift.String? = nil, sshClientConfigPath: Swift.String? = nil, logger: Combine.PassthroughSubject<Swift.String, Swift.Never>? = nil, keepAliveInterval: Swift.Int? = nil)
+  public init(user: Swift.String, port: Swift.String? = "22", proxyJump: Swift.String? = nil, proxyCommand: Swift.String? = nil, authMethods: [SSH.AuthMethod]? = nil, loggingVerbosity: SSH.SSHLogLevel = .none, verifyHostCallback: SSH.SSHClientConfig.RequestVerifyHostCallback? = nil, connectionTimeout: Swift.Int = 30, sshDirectory: Swift.String? = nil, sshClientConfigPath: Swift.String? = nil, logger: Combine.PassthroughSubject<Swift.String, Swift.Never>? = nil, keepAliveInterval: Swift.Int? = nil, compression: Swift.Bool = true, compressionLevel: Swift.Int = 6)
 }
 @_hasMissingDesignatedInitializers public class SSHClient {
-  final public let options: SSH.SSHClientConfig
   public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
+  public var handleSessionException: ((Swift.Error) -> ())?
   public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig, withProxy proxyCb: SSH.SSHClient.ExecProxyCommandCallback? = nil) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func verifyKnownHost() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func connect() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
-  public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil, terminalEmulator: Swift.String = "xterm-256color") -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestSFTP() -> Combine.AnyPublisher<SSH.SFTPClient, Swift.Error>
   public func requestExec(command cmd: Swift.String) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestForward(to endpoint: Swift.String, port: Swift.Int32, from host: Swift.String, localPort: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestReverseForward(bindTo address: Swift.String?, port: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   @objc deinit
 }
+public typealias SSHLoggerPublisher = Combine.PassthroughSubject<Swift.String, Swift.Never>
+public enum SSHLogLevel : Swift.Int {
+  case none
+  case warn
+  case info
+  case debug
+  case trace
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum SSHError : Swift.Error, Swift.Equatable {
   public static func == (lhs: SSH.SSHError, rhs: SSH.SSHError) -> Swift.Bool
-  case noClient
-  case noChannel
   case again
   case connError(msg: Swift.String)
+  case operationError(msg: Swift.String)
   case notImplemented(Swift.String)
   case authFailed(methods: [SSH.AuthMethod])
   case authError(msg: Swift.String)
-  case errorGettingServerPublicKey(libsshError: Swift.String)
-  case errorGettingPublicKeyHash(libsshError: Swift.String)
-  case couldntUpdateKnownHosts
-  case couldntVerifyHostAuthenticity
-  case couldntResolveHostAddress
   public var description: Swift.String {
     get
   }
@@ -179,7 +189,7 @@ public class AuthPublicKey : SSH.AuthMethod {
 @_hasMissingDesignatedInitializers public class Stream : SSH.Reader, SSH.Writer, SSH.WriterTo {
   public var handleCompletion: (() -> ())?
   public var handleFailure: ((Swift.Error) -> ())?
-  public func connect(stdout out: SSH.Writer, stdin input: SSH.WriterTo? = nil, stderr err: SSH.WriterTo? = nil)
+  public func connect(stdout out: SSH.Writer, stdin input: SSH.WriterTo? = nil, stderr err: SSH.Writer? = nil)
   public func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
   public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
   public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
@@ -204,3 +214,6 @@ extension SSH.DispatchStreamError : Swift.Equatable {}
 extension SSH.DispatchStreamError : Swift.Hashable {}
 extension SSH.InteractiveResponse : Swift.Equatable {}
 extension SSH.InteractiveResponse : Swift.Hashable {}
+extension SSH.SSHLogLevel : Swift.Equatable {}
+extension SSH.SSHLogLevel : Swift.Hashable {}
+extension SSH.SSHLogLevel : Swift.RawRepresentable {}

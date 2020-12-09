@@ -4,6 +4,18 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Frameworks/openssl.framework/Info.plist</key>
+		<data>
+		rjy3T79WkhirxNuUFlUPz3qwDrw=
+		</data>
+		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
+		<data>
+		V6LmOCMmoQgbpmHueREGke0oM5Q=
+		</data>
+		<key>Frameworks/openssl.framework/openssl</key>
+		<data>
+		pExxr1Ut+vT4yfIjVS4KF8PR1Fo=
+		</data>
 		<key>Headers/SSH-Swift.h</key>
 		<data>
 		nG4ih5sHhCAKdo0C8XYz/05WcOc=
@@ -14,27 +26,27 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		T6tzPJkcluSxpA30aYxLSs9/8fI=
+		gxmw+ZSsWj8a0syB+xjNm2yxNDA=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		mbXWMylafD+BOqD/TTNnnJ0HMGw=
+		Nyw2+hoUmmvbaM1Aou9132wi4cg=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		w2h4tUFFgFbWGkkA/2GMKVuMWuM=
+		rSUs6uwoddysZChjkOPdGc2GEhw=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		T6tzPJkcluSxpA30aYxLSs9/8fI=
+		gxmw+ZSsWj8a0syB+xjNm2yxNDA=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		mbXWMylafD+BOqD/TTNnnJ0HMGw=
+		Nyw2+hoUmmvbaM1Aou9132wi4cg=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		w2h4tUFFgFbWGkkA/2GMKVuMWuM=
+		rSUs6uwoddysZChjkOPdGc2GEhw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,6 +55,27 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/openssl.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AixKJWNjGT5m4nklg0I4vIAl+kIAaApQKqiOoINN8rM=
+			</data>
+		</dict>
+		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FjLfxrlS0L6Q45QoQkzhZNVT+08ED+KJRtsd1mpYETc=
+			</data>
+		</dict>
+		<key>Frameworks/openssl.framework/openssl</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NYqeKbKrjAEsBkyOSc8zk7rjMsVYky7+7TMZjN8ZqSE=
+			</data>
+		</dict>
 		<key>Headers/SSH-Swift.h</key>
 		<dict>
 			<key>hash2</key>
@@ -54,42 +87,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tdVOlOobvdr6U116Y0YdBNbRP5sV40PTccrCcifynXI=
+			a5FB5C/Po7SUhKe/8vRdHrSC66JACYqlZCcbyngbtmU=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r6xnnX7SaUopyJa7vQkbRu4ryl7VWMXbopuf19b2Lfs=
+			jGePE91RsQVInlTOvMv9pU6otQv4xCRiou+zfTLC8UY=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ue+0QCsOIObNhXGr8xXLXA1+tA6H50OeY1FhlXO6R48=
+			WiAZfo9elRwb1AoQpFeNHJb6p+6s96fsZLh2hA2E/NI=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tdVOlOobvdr6U116Y0YdBNbRP5sV40PTccrCcifynXI=
+			a5FB5C/Po7SUhKe/8vRdHrSC66JACYqlZCcbyngbtmU=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r6xnnX7SaUopyJa7vQkbRu4ryl7VWMXbopuf19b2Lfs=
+			jGePE91RsQVInlTOvMv9pU6otQv4xCRiou+zfTLC8UY=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ue+0QCsOIObNhXGr8xXLXA1+tA6H50OeY1FhlXO6R48=
+			WiAZfo9elRwb1AoQpFeNHJb6p+6s96fsZLh2hA2E/NI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
