@@ -40,7 +40,8 @@ public enum PortForwardState {
   case waiting(Swift.Error)
   case starting
   case ready
-  case received(stream: Combine.AnyPublisher<SSH.Stream, Swift.Error>)
+  case received(stream: SSH.Stream)
+  case error(Swift.Error)
 }
 public enum SSHPortForwardError : Swift.Error {
   case nwError(msg: Swift.String)
