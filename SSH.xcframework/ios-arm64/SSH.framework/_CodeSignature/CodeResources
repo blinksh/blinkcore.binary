@@ -4,6 +4,18 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Frameworks/openssl.framework/Info.plist</key>
+		<data>
+		rjy3T79WkhirxNuUFlUPz3qwDrw=
+		</data>
+		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
+		<data>
+		V6LmOCMmoQgbpmHueREGke0oM5Q=
+		</data>
+		<key>Frameworks/openssl.framework/openssl</key>
+		<data>
+		J1dUdAQixH9tz2v15WsCoSWx25A=
+		</data>
 		<key>Headers/SSH-Swift.h</key>
 		<data>
 		nG4ih5sHhCAKdo0C8XYz/05WcOc=
@@ -22,7 +34,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		JJs13YkvwuI3t6xP8f0sJ+y+tAQ=
+		7TcZFWFwo5qd1MGn/G2iic1unlg=
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +46,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		JJs13YkvwuI3t6xP8f0sJ+y+tAQ=
+		7TcZFWFwo5qd1MGn/G2iic1unlg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,6 +55,27 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/openssl.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AixKJWNjGT5m4nklg0I4vIAl+kIAaApQKqiOoINN8rM=
+			</data>
+		</dict>
+		<key>Frameworks/openssl.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FjLfxrlS0L6Q45QoQkzhZNVT+08ED+KJRtsd1mpYETc=
+			</data>
+		</dict>
+		<key>Frameworks/openssl.framework/openssl</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EiBjsfV7raErqy6nIXRwPtO+D+ti6nnuOvD7WvDJmDE=
+			</data>
+		</dict>
 		<key>Headers/SSH-Swift.h</key>
 		<dict>
 			<key>hash2</key>
@@ -68,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			H3HzjY00HjRXrWWBeIasdKVxU9kGJdfk8+VLh0NLCwg=
+			s7NAnjfpq/D9iSLpBwuXCr2kftJTRIuxuXbotCzSNaU=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/arm64.swiftdoc</key>
@@ -89,7 +122,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			H3HzjY00HjRXrWWBeIasdKVxU9kGJdfk8+VLh0NLCwg=
+			s7NAnjfpq/D9iSLpBwuXCr2kftJTRIuxuXbotCzSNaU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
