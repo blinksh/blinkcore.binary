@@ -40,7 +40,6 @@ public enum PortForwardState {
   case waiting(Swift.Error)
   case starting
   case ready
-  case received(stream: SSH.Stream)
   case error(Swift.Error)
 }
 public enum SSHPortForwardError : Swift.Error {
@@ -49,7 +48,7 @@ public enum SSHPortForwardError : Swift.Error {
 }
 public class SSHPortForwardListener {
   public init(on localPort: Swift.UInt16, toDestination host: Swift.String, on remotePort: Swift.UInt16, using client: SSH.SSHClient)
-  public func receive() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
+  public func connect() -> Combine.AnyPublisher<SSH.PortForwardState, Swift.Error>
   public func close()
   @objc deinit
 }
