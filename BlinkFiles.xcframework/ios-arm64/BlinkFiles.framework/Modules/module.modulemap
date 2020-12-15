@@ -1,0 +1,11 @@
+framework module BlinkFiles {
+  umbrella header "BlinkFiles.h"
+
+  export *
+  module * { export * }
+}
+
+module BlinkFiles.Swift {
+    header "BlinkFiles-Swift.h"
+    requires objc
+}

@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SSH
+import BlinkFiles
 import Combine
 import Dispatch
 import Foundation
@@ -20,20 +21,37 @@ public enum DeleteKnownHostsError : Swift.Error {
 public enum FileError : Swift.Error {
   case Fail(msg: Swift.String)
 }
-@_hasMissingDesignatedInitializers public class SFTPClient {
-  public func walkTo(_ path: Swift.String)
-  public func directoryFilesAndAttributes(_ path: Swift.String) -> Combine.AnyPublisher<[Swift.String], Swift.Error>
-  public func open(_ path: Swift.String) -> Combine.AnyPublisher<SSH.SFTPFile, Swift.Error>
+@_hasMissingDesignatedInitializers public class SFTPClient : BlinkFiles.Translator {
+  public var current: Swift.String {
+    get
+  }
+  public var fileType: Foundation.FileAttributeType {
+    get
+  }
+  public var isDirectory: Swift.Bool {
+    get
+  }
+  public func clone() -> BlinkFiles.Translator
+  public func walkTo(_ path: Swift.String) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  public func directoryFilesAndAttributes() -> Combine.AnyPublisher<[BlinkFiles.FileAttributes], Swift.Error>
+  public func open(flags: Swift.Int32) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  public func create(name: Swift.String, flags: Swift.Int32, mode: Darwin.mode_t = S_IRWXU) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  public func remove() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  public func rmdir() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  public func mkdir(name: Swift.String, mode: Darwin.mode_t = S_IRWXU | S_IRWXG | S_IRWXO) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  public func stat() -> Combine.AnyPublisher<BlinkFiles.FileAttributes, Swift.Error>
+  public func wstat(_ attrs: BlinkFiles.FileAttributes) -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class SFTPFile {
+@_hasMissingDesignatedInitializers public class SFTPFile : BlinkFiles.File {
+  public func close() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
   @objc deinit
 }
-extension SFTPFile : SSH.Reader, SSH.WriterTo {
+extension SFTPFile : BlinkFiles.Reader, BlinkFiles.WriterTo {
   public func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
   public func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
 }
-extension SFTPFile : SSH.Writer {
+extension SFTPFile : BlinkFiles.Writer {
   public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
 }
 public enum PortForwardState {
@@ -186,6 +204,32 @@ public class AuthPublicKey : SSH.AuthMethod {
   public func name() -> Swift.String
   @objc deinit
 }
+public struct SCPError : Swift.Error {
+}
+public struct SCPMode : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let Sink: SSH.SCPMode
+  public static let Source: SSH.SCPMode
+  public static let Recursive: SSH.SCPMode
+  public typealias Element = SSH.SCPMode
+  public typealias ArrayLiteralElement = SSH.SCPMode
+  public typealias RawValue = Swift.Int
+}
+@_hasMissingDesignatedInitializers public class SCPClient {
+  public static func execute(using ssh: SSH.SSHClient, as mode: SSH.SCPMode, root quotedPath: Swift.String) -> Combine.AnyPublisher<SSH.SCPClient, Swift.Error>
+  public func close()
+  @objc deinit
+}
+extension SCPClient {
+  public func copyFrom(_ ts: [BlinkFiles.Translator]) -> BlinkFiles.CopyProgressInfo
+}
+extension SCPClient : SSH.Writer {
+  public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension SCPClient {
+  public func copyTo(_ t: BlinkFiles.Translator) -> BlinkFiles.CopyProgressInfo
+}
 @_hasMissingDesignatedInitializers public class Stream : SSH.Reader, SSH.Writer, SSH.WriterTo {
   public var handleCompletion: (() -> ())?
   public var handleFailure: ((Swift.Error) -> ())?
@@ -198,18 +242,10 @@ public class AuthPublicKey : SSH.AuthMethod {
   public func cancel()
   @objc deinit
 }
-public protocol Reader {
-  func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
-}
-public protocol Writer {
-  func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
-}
-public protocol WriterTo {
-  func writeTo(_ w: SSH.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
-}
-public protocol ReaderFrom {
-  func readFrom(_ r: SSH.Reader) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
-}
+public typealias Reader = BlinkFiles.Reader
+public typealias ReaderFrom = BlinkFiles.ReaderFrom
+public typealias Writer = BlinkFiles.Writer
+public typealias WriterTo = BlinkFiles.WriterTo
 extension SSH.DispatchStreamError : Swift.Equatable {}
 extension SSH.DispatchStreamError : Swift.Hashable {}
 extension SSH.InteractiveResponse : Swift.Equatable {}

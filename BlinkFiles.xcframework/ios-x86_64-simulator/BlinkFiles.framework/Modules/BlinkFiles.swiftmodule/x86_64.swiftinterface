@@ -1,0 +1,87 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BlinkFiles
+@_exported import BlinkFiles
+import Combine
+import Dispatch
+import Foundation
+import Swift
+public struct CopyError : Swift.Error {
+  public let msg: Swift.String
+}
+extension Translator {
+  public func copy(from ts: [BlinkFiles.Translator]) -> BlinkFiles.CopyProgressInfo
+}
+public struct LocalFileError : Swift.Error {
+  public let msg: Swift.String
+}
+public class Local : BlinkFiles.Translator {
+  public var isDirectory: Swift.Bool
+  public var fileType: Foundation.FileAttributeType {
+    get
+  }
+  public var current: Swift.String {
+    get
+  }
+  public init()
+  public func clone() -> BlinkFiles.Translator
+  public func walkTo(_ path: Swift.String) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  public func directoryFilesAndAttributes() -> Combine.AnyPublisher<[BlinkFiles.FileAttributes], Swift.Error>
+  public func create(name: Swift.String, flags: Swift.Int32, mode: Darwin.mode_t = S_IRWXU) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  public func mkdir(name: Swift.String, mode: Darwin.mode_t = S_IRWXU | S_IRWXG | S_IRWXO) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  public func open(flags: Swift.Int32) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  public func remove() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  public func rmdir() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  public func stat() -> Combine.AnyPublisher<BlinkFiles.FileAttributes, Swift.Error>
+  public func wstat(_ attrs: BlinkFiles.FileAttributes) -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class LocalFile : BlinkFiles.File {
+  public func close() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  @objc deinit
+}
+extension LocalFile : BlinkFiles.Reader, BlinkFiles.WriterTo {
+  public func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
+  public func writeTo(_ w: BlinkFiles.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension LocalFile : BlinkFiles.Writer {
+  public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+extension FileAttributeKey {
+  public static let name: Foundation.FileAttributeKey
+}
+public typealias FileAttributes = [Foundation.FileAttributeKey : Any]
+public protocol Translator {
+  var fileType: Foundation.FileAttributeType { get }
+  var isDirectory: Swift.Bool { get }
+  var current: Swift.String { get }
+  func clone() -> BlinkFiles.Translator
+  func walkTo(_ path: Swift.String) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  func directoryFilesAndAttributes() -> Combine.AnyPublisher<[BlinkFiles.FileAttributes], Swift.Error>
+  func create(name: Swift.String, flags: Swift.Int32, mode: Darwin.mode_t) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  func mkdir(name: Swift.String, mode: Darwin.mode_t) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+  func open(flags: Swift.Int32) -> Combine.AnyPublisher<BlinkFiles.File, Swift.Error>
+  func remove() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  func rmdir() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+  func stat() -> Combine.AnyPublisher<BlinkFiles.FileAttributes, Swift.Error>
+  func wstat(_ attrs: BlinkFiles.FileAttributes) -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+}
+public protocol Reader {
+  func read(max length: Swift.Int) -> Combine.AnyPublisher<Dispatch.DispatchData, Swift.Error>
+}
+public protocol Writer {
+  func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public protocol WriterTo {
+  func writeTo(_ w: BlinkFiles.Writer) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public protocol ReaderFrom {
+  func readFrom(_ r: BlinkFiles.Reader) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
+}
+public protocol File : BlinkFiles.Reader, BlinkFiles.Writer {
+  func close() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
+}
+public typealias CopyProgressInfo = Combine.AnyPublisher<(Swift.String, Swift.UInt64, Swift.UInt64), Swift.Error>
+extension Translator {
+  public func cloneWalkTo(_ path: Swift.String) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
+}

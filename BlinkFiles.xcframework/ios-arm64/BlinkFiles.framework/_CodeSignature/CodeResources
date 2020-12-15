@@ -4,132 +4,110 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/BlinkFiles.framework/BlinkFiles</key>
+		<key>Headers/BlinkFiles-Swift.h</key>
 		<data>
-		4OIKnBRdzaxBJlYUbaqthXvqSAc=
+		yr8zbRsCZpqLnDhQQvLVhi3CpJs=
 		</data>
-		<key>Frameworks/BlinkFiles.framework/Info.plist</key>
+		<key>Headers/BlinkFiles.h</key>
 		<data>
-		Cu4pf8LawotwJBZ1SMNnNoe8Qmg=
-		</data>
-		<key>Frameworks/BlinkFiles.framework/_CodeSignature/CodeResources</key>
-		<data>
-		bYb4zqcCKuTgmIFYnM0iOaSIOtQ=
-		</data>
-		<key>Headers/SSH-Swift.h</key>
-		<data>
-		ZT/+FIrvkHMCUI909RCLF6Tdv/E=
+		scDnOoWLpJ8cys5JLCot5HaSTLc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dPAZ+k6049JbiBFunu9DoCpEk38=
+		OVEnfRgWlVmLsr4KdgEqdox6C2k=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		Shnm1GdY/ujXKsW9vmxgTlH07Ds=
+		vyIGNlDlpYBC96STec5zGXYBRi0=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Cl9bVuz3yUH0if/7f7wUEgVd7xQ=
+		y42H7vYkXqTHULjdPNkhu+nsnjc=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		TYi2dFwhLGCLAd51q7xN5YwOjmA=
+		qy8i7u0W0O6lFcgbN98AK3TsVv4=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		Shnm1GdY/ujXKsW9vmxgTlH07Ds=
+		vyIGNlDlpYBC96STec5zGXYBRi0=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftinterface</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		Cl9bVuz3yUH0if/7f7wUEgVd7xQ=
+		y42H7vYkXqTHULjdPNkhu+nsnjc=
 		</data>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		TYi2dFwhLGCLAd51q7xN5YwOjmA=
+		qy8i7u0W0O6lFcgbN98AK3TsVv4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		gZyuXY9x3b6+0jZ3KlKNC4qB+CU=
+		pEkOmKdaAJyNxxaqfne2F/0iGuY=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/BlinkFiles.framework/BlinkFiles</key>
+		<key>Headers/BlinkFiles-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wRnwvX41g4POTj4ORusztb66kWnGkAw9KiDo24U8Oxk=
+			PkmgWH8GTkHg0KDFZr2p1iiP2uzE9PShDEOhrQIrq3E=
 			</data>
 		</dict>
-		<key>Frameworks/BlinkFiles.framework/Info.plist</key>
+		<key>Headers/BlinkFiles.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0EwI+1Ek3Pjg2z5TN45rFT2efEPGr8F9mLMr6bxXxq8=
+			xPclOMaLMVJlgLLcKk2liAdeKVdGfM8rV+8mlkDhKXY=
 			</data>
 		</dict>
-		<key>Frameworks/BlinkFiles.framework/_CodeSignature/CodeResources</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i33CHzpdS5PDfnMZLiZEgTRMEAOrhdV1HNCSDF/HzrE=
+			X0JjzNAM+UOdlaehgUklx2ysxI/O5wTvZO8qEsbqf1s=
 			</data>
 		</dict>
-		<key>Headers/SSH-Swift.h</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Csxw1X9m5RBPNeauEQLjggvP/G1NUp0kUWZrM8zC9c=
+			W3jNu/6Z1OExX1pfp6Yi9JHXdU9VT1FUezuPMIQNi2Q=
 			</data>
 		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pi7CpKRd4Cb23X1Tfxzzq9IV6MhFImlRFhxMESyuvcU=
+			LcYWtltgxwntuMfKTevcU0ckfgbheWW6gR447bbxz5o=
 			</data>
 		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VsVxwSzLoKcwiHwCzKo11K+W+LFmm8GnPeHgGr5dIUY=
+			X0JjzNAM+UOdlaehgUklx2ysxI/O5wTvZO8qEsbqf1s=
 			</data>
 		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KO7w3s9vCVwWv6V0PNri9/92nAnz6qrkZy/BvnVN7gQ=
+			W3jNu/6Z1OExX1pfp6Yi9JHXdU9VT1FUezuPMIQNi2Q=
 			</data>
 		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
+		<key>Modules/BlinkFiles.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pi7CpKRd4Cb23X1Tfxzzq9IV6MhFImlRFhxMESyuvcU=
-			</data>
-		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			VsVxwSzLoKcwiHwCzKo11K+W+LFmm8GnPeHgGr5dIUY=
-			</data>
-		</dict>
-		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			KO7w3s9vCVwWv6V0PNri9/92nAnz6qrkZy/BvnVN7gQ=
+			LcYWtltgxwntuMfKTevcU0ckfgbheWW6gR447bbxz5o=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SOjAmgOiId4c3syYqLkYgP8AMS3rmxavEsRjPpOQ8Vo=
+			m29P7EdU/5xSyjiCjr3jK/Z//7PLWI4WhCk/FPKBjeg=
 			</data>
 		</dict>
 	</dict>

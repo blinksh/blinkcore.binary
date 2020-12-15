@@ -14,6 +14,10 @@ let package = Package(
     .library(
       name: "LibSSH",
       targets: ["LibSSH"]
+    ),
+    .library(
+      name: "BlinkFiles",
+      targets: ["BlinkFiles"]
     )
   ],
   targets: [
@@ -24,6 +28,10 @@ let package = Package(
     .binaryTarget(
         name: "LibSSH",
         path: "libssh.xcframework"
+    ),
+    .binaryTarget(
+      name: "BlinkFiles",
+      path: "BlinkFiles.xcframework"
     )
   ]
 )
