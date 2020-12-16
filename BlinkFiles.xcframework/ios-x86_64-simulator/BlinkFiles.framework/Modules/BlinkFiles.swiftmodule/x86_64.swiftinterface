@@ -47,10 +47,11 @@ extension LocalFile : BlinkFiles.Reader, BlinkFiles.WriterTo {
 extension LocalFile : BlinkFiles.Writer {
   public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
 }
+public typealias BlinkFilesAttributeKey = Foundation.FileAttributeKey
 extension FileAttributeKey {
   public static let name: Foundation.FileAttributeKey
 }
-public typealias FileAttributes = [Foundation.FileAttributeKey : Any]
+public typealias FileAttributes = [BlinkFiles.BlinkFilesAttributeKey : Any]
 public protocol Translator {
   var fileType: Foundation.FileAttributeType { get }
   var isDirectory: Swift.Bool { get }
