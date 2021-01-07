@@ -52,7 +52,7 @@ extension FileAttributeKey {
   public static let name: Foundation.FileAttributeKey
 }
 public typealias FileAttributes = [BlinkFiles.BlinkFilesAttributeKey : Any]
-public protocol Translator {
+public protocol Translator : BlinkFiles.CopierFrom {
   var fileType: Foundation.FileAttributeType { get }
   var isDirectory: Swift.Bool { get }
   var current: Swift.String { get }
@@ -83,6 +83,12 @@ public protocol File : BlinkFiles.Reader, BlinkFiles.Writer {
   func close() -> Combine.AnyPublisher<Swift.Bool, Swift.Error>
 }
 public typealias CopyProgressInfo = Combine.AnyPublisher<(Swift.String, Swift.UInt64, Swift.UInt64), Swift.Error>
+public protocol CopierFrom {
+  func copy(from ts: [BlinkFiles.Translator]) -> BlinkFiles.CopyProgressInfo
+}
+public protocol CopierTo {
+  func copy(to ts: BlinkFiles.Translator) -> BlinkFiles.CopyProgressInfo
+}
 extension Translator {
   public func cloneWalkTo(_ path: Swift.String) -> Combine.AnyPublisher<BlinkFiles.Translator, Swift.Error>
 }

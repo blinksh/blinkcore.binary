@@ -131,6 +131,7 @@ public struct SSHClientConfig {
   public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
   public var handleSessionException: ((Swift.Error) -> ())?
   public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig, withProxy proxyCb: SSH.SSHClient.ExecProxyCommandCallback? = nil) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
+  public func clientAddressIP() -> Swift.String?
   public func verifyKnownHost() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func connect() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil, terminalEmulator: Swift.String = "xterm-256color") -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
@@ -216,19 +217,19 @@ public struct SCPMode : Swift.OptionSet {
   public typealias ArrayLiteralElement = SSH.SCPMode
   public typealias RawValue = Swift.Int
 }
-@_hasMissingDesignatedInitializers public class SCPClient {
+@_hasMissingDesignatedInitializers public class SCPClient : BlinkFiles.CopierFrom, BlinkFiles.CopierTo {
   public static func execute(using ssh: SSH.SSHClient, as mode: SSH.SCPMode, root quotedPath: Swift.String) -> Combine.AnyPublisher<SSH.SCPClient, Swift.Error>
   public func close()
   @objc deinit
 }
 extension SCPClient {
-  public func copyFrom(_ ts: [BlinkFiles.Translator]) -> BlinkFiles.CopyProgressInfo
+  public func copy(from ts: [BlinkFiles.Translator]) -> BlinkFiles.CopyProgressInfo
 }
 extension SCPClient : SSH.Writer {
   public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
 }
 extension SCPClient {
-  public func copyTo(_ t: BlinkFiles.Translator) -> BlinkFiles.CopyProgressInfo
+  public func copy(to t: BlinkFiles.Translator) -> BlinkFiles.CopyProgressInfo
 }
 @_hasMissingDesignatedInitializers public class Stream : SSH.Reader, SSH.Writer, SSH.WriterTo {
   public var handleCompletion: (() -> ())?

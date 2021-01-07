@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		JWyd6oGatMvTAHhTUs3YjAo6g5w=
+		+Tjl0KUNLm31Jsxpzn5C5igGakI=
 		</data>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		CDzLTv5mlcQgUAyD3hbn9ZDJ4Ns=
+		Mnc/QSWylvJAVAsTBn6fq9iVp/c=
 		</data>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		JWyd6oGatMvTAHhTUs3YjAo6g5w=
+		+Tjl0KUNLm31Jsxpzn5C5igGakI=
 		</data>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		CDzLTv5mlcQgUAyD3hbn9ZDJ4Ns=
+		Mnc/QSWylvJAVAsTBn6fq9iVp/c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -72,14 +72,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YIlIxorBEbEjd5b6EkGt8B+tj+iP8QA4xo1vc+6aw58=
+			5kE4sDDaZZdQM9cNaJPt5hueBKprv1n5K1P1tBPVHS4=
 			</data>
 		</dict>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HWHbEyYNx/xkv7cA9oZPyAhDn6ubqy1pY9fl5TMIb7o=
+			9z0zFtZsv8GEs0nX5h4Y6qVKG7W6Srz+Y3Xk8uorOTo=
 			</data>
 		</dict>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64.swiftdoc</key>
@@ -93,14 +93,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YIlIxorBEbEjd5b6EkGt8B+tj+iP8QA4xo1vc+6aw58=
+			5kE4sDDaZZdQM9cNaJPt5hueBKprv1n5K1P1tBPVHS4=
 			</data>
 		</dict>
 		<key>Modules/BlinkFiles.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HWHbEyYNx/xkv7cA9oZPyAhDn6ubqy1pY9fl5TMIb7o=
+			9z0zFtZsv8GEs0nX5h4Y6qVKG7W6Srz+Y3Xk8uorOTo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
