@@ -129,14 +129,17 @@ public struct SSHClientConfig {
 }
 @_hasMissingDesignatedInitializers public class SSHClient {
   public typealias ExecProxyCommandCallback = (Swift.String, Swift.Int32, Swift.Int32) -> Swift.Void
+  public struct PTY {
+    public init(rows: Swift.Int32, columns: Swift.Int32, emulator: Swift.String = "xterm-256color")
+  }
   public var handleSessionException: ((Swift.Error) -> ())?
   public static func dial(_ host: Swift.String, with opts: SSH.SSHClientConfig, withProxy proxyCb: SSH.SSHClient.ExecProxyCommandCallback? = nil) -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func clientAddressIP() -> Swift.String?
   public func verifyKnownHost() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
   public func connect() -> Combine.AnyPublisher<SSH.SSHClient, Swift.Error>
-  public func requestInteractiveShell(rows: Swift.Int32? = nil, columns: Swift.Int32? = nil, terminalEmulator: Swift.String = "xterm-256color") -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestInteractiveShell(withPTY pty: SSH.SSHClient.PTY? = nil) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestSFTP() -> Combine.AnyPublisher<SSH.SFTPClient, Swift.Error>
-  public func requestExec(command cmd: Swift.String) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
+  public func requestExec(command cmd: Swift.String, withPTY pty: SSH.SSHClient.PTY? = nil) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestForward(to endpoint: Swift.String, port: Swift.Int32, from host: Swift.String, localPort: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   public func requestReverseForward(bindTo address: Swift.String?, port: Swift.Int32) -> Combine.AnyPublisher<SSH.Stream, Swift.Error>
   @objc deinit
