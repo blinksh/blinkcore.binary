@@ -83,16 +83,11 @@ extension NWConnection : SSH.Writer {
   final public func write(_ buf: Dispatch.DispatchData, max length: Swift.Int) -> Combine.AnyPublisher<Swift.Int, Swift.Error>
 }
 public enum DispatchStreamError : Swift.Error {
-  case read
-  case write
+  case read(msg: Swift.String)
+  case write(msg: Swift.String)
   public var description: Swift.String {
     get
   }
-  public static func == (a: SSH.DispatchStreamError, b: SSH.DispatchStreamError) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public class DispatchOutputStream : SSH.Writer {
   public init(stream: Swift.Int32)
@@ -250,8 +245,6 @@ public typealias Reader = BlinkFiles.Reader
 public typealias ReaderFrom = BlinkFiles.ReaderFrom
 public typealias Writer = BlinkFiles.Writer
 public typealias WriterTo = BlinkFiles.WriterTo
-extension SSH.DispatchStreamError : Swift.Equatable {}
-extension SSH.DispatchStreamError : Swift.Hashable {}
 extension SSH.InteractiveResponse : Swift.Equatable {}
 extension SSH.InteractiveResponse : Swift.Hashable {}
 extension SSH.SSHLogLevel : Swift.Equatable {}
