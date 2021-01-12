@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		B6Ca2BAqERE1El03vSy24bFhzP4=
+		FxfuR0EwUnqv7hned0ccTCrWUIc=
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		B6Ca2BAqERE1El03vSy24bFhzP4=
+		FxfuR0EwUnqv7hned0ccTCrWUIc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -101,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bjwG+reNm3Zl/ciwSAc0I1Tu0jeR/FMe+VIRfTMS9Yc=
+			ig37FnZzQXNUNFfi/BhR0aDXC5Sr7GfmMGbeAmLfTpg=
 			</data>
 		</dict>
 		<key>Modules/SSH.swiftmodule/x86_64.swiftdoc</key>
@@ -122,7 +122,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bjwG+reNm3Zl/ciwSAc0I1Tu0jeR/FMe+VIRfTMS9Yc=
+			ig37FnZzQXNUNFfi/BhR0aDXC5Sr7GfmMGbeAmLfTpg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
